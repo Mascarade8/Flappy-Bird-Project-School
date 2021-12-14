@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class pipe : MonoBehaviour
 {
+    public float speed;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -13,16 +15,7 @@ public class pipe : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = transform.position + new Vector3(-0.008f, 0f, 0f);
+        transform.position += Vector3.left * speed * Time.deltaTime;
     }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.GetComponent<Player>() != null)
-        {
-            //BAM BAM
-            // Kill The Player
-            collision.gameObject.SetActive(false);
-
-        }
-    }
+   
 }

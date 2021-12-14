@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public float c_thurst;
-    public float c_maxSpeedY_Up;
-    public float c_maxSpeedY_Down;
+    public GameManage gameManage;
+    public float velocity = 1;
+
+    private Rigidbody2D rb;
     // Start is called before the first frame update
     void Start()
     {
-        
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -19,21 +20,13 @@ public class Player : MonoBehaviour
         Rigidbody2D f_rigid = GetComponent<Rigidbody2D>();
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            //Debug.Log("add force");
-            //GetComponent<Rigidbody2D>().AddForce(Vector2.up * c_thurst, ForceMode2D.Force);
-            
-            f_rigid.AddForce(Vector2.up * c_thurst, ForceMode2D.Force);
+            rb.velocity = Vector2.up * velocity; 
         }
+    }
 
-            if( f_rigid.velocity.y > c_maxSpeedY_Up)
-            {
-                f_rigid.velocity = new Vector2(0f, c_maxSpeedY_Up);
-            }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        gameManage.GameOver();
 
-            if( f_rigid.velocity.y < -c_maxSpeedY_Down)
-            {
-                f_rigid.velocity = new Vector2(0f, -c_maxSpeedY_Down);
-            }
-        
     }
 }

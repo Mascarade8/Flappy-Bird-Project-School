@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/JV2.1 EXSHAW THOMAS FLAPPY BIRD.unity
+    guid: e663b67da83d0f7428b215b97cec89f9
   m_configObjects: {}
